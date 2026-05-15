@@ -9,7 +9,7 @@ spec:
       repoURL: 'https://github.com/lukeabela38/stunning-octo-fishstick.git'
       revision: HEAD
       directories:
-      - path: infrastructure/argocd/apps
+      - path: infrastructure/argocd/apps/*
   template:
     metadata:
       name: '{{path.basename}}'
@@ -18,12 +18,12 @@ spec:
       source:
         repoURL: 'https://github.com/lukeabela38/stunning-octo-fishstick.git'
         targetRevision: HEAD
-        path: 'traefik'
+        path: '{{path}}'
         helm:
           valueFiles:
           - values.yaml
       destination:
-        server: https://default.svc
+        server: https://kubernetes.default.svc
         # Drops the "dev-" or "prod-" prefix to target the correct namespace
         namespace: '{{path.basename}}' 
       syncPolicy:
