@@ -1,0 +1,43 @@
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: k3d-3node-cluster
+
+servers: 1
+agents: 2
+
+image: rancher/k3s:v1.29.2-k3s1
+
+kubeAPI:
+  host: "0.0.0.0"
+  hostPort: "6443"
+
+ports:
+  - port: 8080:80
+    nodeFilters:
+      - loadbalancer
+
+  - port: 8443:443
+    nodeFilters:
+      - loadbalancer
+
+options:
+  k3d:
+    wait: true
+    timeout: "120s"
+  k3s:
+    extraArgs:
+      - arg: "--tls-san=localhost"
+        nodeFilters:
+          - server:*
+
+volumes:
+  - volume: /tmp/k3d-data:/var/lib/rancher/k3s/storage
+    nodeFilters:
+      - all
+
+registries:
+  create:
+    name: k3d-registry.local
+    host: "0.0.0.0"
+    hostPort: "5000"
