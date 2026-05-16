@@ -4,6 +4,4 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  # FIX: Ensure the domain is strictly raw.githubusercontent.com (with the .raw suffix structure)
-  - https://githubusercontent.com
-
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
