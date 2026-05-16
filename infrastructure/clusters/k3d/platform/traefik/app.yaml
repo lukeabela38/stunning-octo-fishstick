@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: traefik
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
 spec:
   project: default
 
@@ -16,12 +14,6 @@ spec:
       values: |
         service:
           type: LoadBalancer
-
-        ports:
-          web:
-            exposedPort: 80
-          websecure:
-            exposedPort: 443
 
         providers:
           kubernetesIngress: {}
@@ -36,3 +28,10 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
+
+  ignoreDifferences:
+    - group: ""
+      kind: Service
+      jsonPointers:
+        - /status
