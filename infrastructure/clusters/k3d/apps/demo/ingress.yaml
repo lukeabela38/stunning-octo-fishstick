@@ -7,8 +7,6 @@ metadata:
 spec:
   ingressClassName: traefik
 
-  tls: 
-
   rules:
     - host: demo.local
       http:

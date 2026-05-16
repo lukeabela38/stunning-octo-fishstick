@@ -13,7 +13,7 @@ spec:
     helm:
       values: |
         service:
-          type: LoadBalancer
+          type: NodePort
 
         providers:
           kubernetesIngress: {}
@@ -29,9 +29,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
-
-  ignoreDifferences:
-    - group: ""
-      kind: Service
-      jsonPointers:
-        - /status
