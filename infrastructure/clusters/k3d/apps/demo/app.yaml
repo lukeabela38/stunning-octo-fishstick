@@ -4,6 +4,7 @@ metadata:
   name: demo
   namespace: argocd
 spec:
+  project: default
   source:
     repoURL: https://github.com/lukeabela38/stunning-octo-fishstick.git
     path: infrastructure/clusters/k3d/apps/demo
