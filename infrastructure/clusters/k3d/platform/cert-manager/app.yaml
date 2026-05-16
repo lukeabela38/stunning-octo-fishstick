@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "0"
+    cert-manager.io/cluster-issuer: selfsigned 
 spec:
   project: default
 
