@@ -8,7 +8,7 @@ spec:
   ingressClassName: traefik
 
   rules:
-    - host: demo.local
+    - host: demo.dev.lukeabela.com
       http:
         paths:
           - path: /

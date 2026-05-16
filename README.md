@@ -14,3 +14,5 @@ infrastructure/
 └── apps/
     └── [your-helm-charts-here]  # Discovered automatically by your ApplicationSet
 ```
+
+[Cloudflared]

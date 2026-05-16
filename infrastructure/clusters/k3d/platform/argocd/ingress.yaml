@@ -10,7 +10,7 @@ spec:
   ingressClassName: traefik
 
   rules:
-    - host: argocd.local
+    - host: argocd.dev.lukeabela.com
       http:
         paths:
           - path: /
