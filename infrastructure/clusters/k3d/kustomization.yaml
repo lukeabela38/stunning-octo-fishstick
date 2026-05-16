@@ -6,4 +6,4 @@ resources:
   - platform/cert-manager/app.yaml
   - platform/cluster-issuer/letsencrypt.yaml
   - platform/argocd/ingress.yaml
-  - apps/demo/
+  - apps/demo/app.yaml

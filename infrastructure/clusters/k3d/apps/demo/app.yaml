@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo
+  namespace: argocd
+spec:
+  source:
+    repoURL: https://github.com/lukeabela38/stunning-octo-fishstick.git
+    path: infrastructure/clusters/k3d/apps/demo
+    targetRevision: main
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demo
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
