@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/lukeabela38/stunning-octo-fishstick.git
     targetRevision: main
-    path: clusters/k3d
+    path: infrastructure/clusters/k3d
 
   destination:
     server: https://kubernetes.default.svc
